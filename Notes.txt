@@ -1,0 +1,6 @@
+Info to get:
+    Trending shows
+    Trending movies
+    Trending peeps
+
+Vote = user score

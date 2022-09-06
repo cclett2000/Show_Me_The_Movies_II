@@ -1,5 +1,6 @@
 package com.example.showmethemoviesii_returnoftheflixster
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -15,20 +16,33 @@ class MovieDetailActivity: AppCompatActivity() {
         setContentView(R.layout.activity_movie_details)
 
         // instantiate UI elements
-        val overview:TextView = findViewById(R.id.overview)
+        val overview:TextView = findViewById(R.id.movie_overview)
+        val popularity:TextView = findViewById(R.id.movie_popularity)
+        val adultFlag:TextView = findViewById(R.id.movie_adult_flag)
         val image:ImageView = findViewById(R.id.movie_image)
 
         // get info from adapter (movie)
-        val movieOverview = intent.getStringExtra("overview")
-        val movieImgPath = intent.getStringExtra("img_path")
+        val movieOverviewData = intent.getStringExtra("overview")
+        val moviePopularityData = intent.getStringExtra("popularity")
+        val adultFlagData = intent.getBooleanExtra("adult_flag", false)
+        val movieImgPathData = intent.getStringExtra("img_path")
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500/$movieImgPath")
+            .load("https://image.tmdb.org/t/p/w500/$movieImgPathData")
             .placeholder(R.drawable.cropped_placeholder)
             .fitCenter()
             .into(image)
 
         // set UI
-        overview.text = movieOverview
+        overview.text = movieOverviewData
+        popularity.text = "Popularity: $moviePopularityData"
+        if(adultFlagData) {
+            adultFlag.text = "18+"
+            adultFlag.setTextColor(Color.MAGENTA)
+        }
+        else {
+            adultFlag.text = "PG"
+            adultFlag.setTextColor(Color.CYAN)
+        }
 
     }
 }

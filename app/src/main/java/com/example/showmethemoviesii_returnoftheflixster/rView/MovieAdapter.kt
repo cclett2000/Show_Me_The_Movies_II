@@ -39,6 +39,8 @@ class MovieAdapter (private val itemList: MutableList<Movie>): RecyclerView.Adap
                 intent.putExtra("name", model.name)
                 intent.putExtra("overview", model.overview)
                 intent.putExtra("img_path", model.img_path)
+                intent.putExtra("popularity", model.popularity)
+                intent.putExtra("adult_flag", model.adult)
                 holder.itemView.context.startActivity(intent)
             }
             holder.movieName.text = model.name

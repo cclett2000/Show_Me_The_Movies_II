@@ -1,6 +1,5 @@
 package com.example.showmethemoviesii_returnoftheflixster.http
 
-import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
@@ -8,7 +7,6 @@ import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.showmethemoviesii_returnoftheflixster.model.base.MovieModel
 import com.example.showmethemoviesii_returnoftheflixster.model.base.PersonModel
-import com.example.showmethemoviesii_returnoftheflixster.model.results.PersonResults
 import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Movie
 import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Person
 import com.example.showmethemoviesii_returnoftheflixster.rView.MovieAdapter
@@ -75,7 +73,9 @@ object RequestHandler {
                             item.poster_path,
                             item.release_date,
                             item.vote_average,
-                            item.overview
+                            item.overview,
+                            item.popularity.toString(),
+                            item.adult
                         )
                     )
 

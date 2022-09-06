@@ -1,25 +1,17 @@
 package com.example.showmethemoviesii_returnoftheflixster.rView
 
 import android.annotation.SuppressLint
-import android.content.ClipData
 import android.content.Intent
-import android.media.Image
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.showmethemoviesii_returnoftheflixster.MovieDetailActivity
 import com.example.showmethemoviesii_returnoftheflixster.R
 import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Movie
-import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Person
 
 class MovieAdapter (private val itemList: MutableList<Movie>): RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     // icky formatting for movie info
@@ -60,7 +52,7 @@ class MovieAdapter (private val itemList: MutableList<Movie>): RecyclerView.Adap
 
         inner class ViewHolder(ItemView: View): RecyclerView.ViewHolder(ItemView){
             val movieImage: ImageView = ItemView.findViewById(R.id.movie_image)
-            val movieName: TextView = ItemView.findViewById(R.id.movie_name)
+            val movieName: TextView = ItemView.findViewById(R.id.overview_header)
             val releaseDate: TextView = ItemView.findViewById(R.id.movie_release_date)
             val userScore: TextView = ItemView.findViewById(R.id.movie_score)
         }

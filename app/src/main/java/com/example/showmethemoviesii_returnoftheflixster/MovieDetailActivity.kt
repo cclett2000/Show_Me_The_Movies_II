@@ -2,12 +2,11 @@ package com.example.showmethemoviesii_returnoftheflixster
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.text.method.ScrollingMovementMethod
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Movie
 
 class MovieDetailActivity: AppCompatActivity() {
     // NPE caused by differing names in xml -- always double check
@@ -34,13 +33,14 @@ class MovieDetailActivity: AppCompatActivity() {
 
         // set UI
         overview.text = movieOverviewData
+        overview.movementMethod = ScrollingMovementMethod()
         popularity.text = "Popularity: $moviePopularityData"
         if(adultFlagData) {
-            adultFlag.text = "18+"
+            adultFlag.text = "Ages 18+"
             adultFlag.setTextColor(Color.MAGENTA)
         }
         else {
-            adultFlag.text = "PG"
+            adultFlag.text = "Ages <18"
             adultFlag.setTextColor(Color.CYAN)
         }
 

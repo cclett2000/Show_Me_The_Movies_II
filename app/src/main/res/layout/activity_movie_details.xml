@@ -16,43 +16,43 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="4dp"
         android:src="@drawable/test_img_movie"
-        app:layout_constraintBottom_toTopOf="@+id/movie_name"
+        app:layout_constraintBottom_toTopOf="@+id/overview_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/movie_name"
+        android:id="@+id/overview_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Overview"
+        android:layout_marginTop="8dp"
+        android:text="Overview Header"
         android:textAlignment="center"
-        android:textSize="22sp"
         android:textColor="@color/white"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_image"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
     <TextView
         android:id="@+id/movie_overview"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="264dp"
-        android:text="Overview"
+        android:layout_height="175dp"
+        android:text="Overview Details"
+        android:scrollbars="vertical"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/overview_header"
+        app:layout_constraintVertical_bias="0.076" />
 
     <TextView
         android:layout_width="420dp"

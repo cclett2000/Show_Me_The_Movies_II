@@ -1,5 +1,6 @@
 package com.example.showmethemoviesii_returnoftheflixster.http
 
+import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
@@ -73,7 +74,8 @@ object RequestHandler {
                             item.title,
                             item.poster_path,
                             item.release_date,
-                            item.vote_average
+                            item.vote_average,
+                            item.overview
                         )
                     )
 
@@ -84,4 +86,5 @@ object RequestHandler {
 
         })
     }
+
 }

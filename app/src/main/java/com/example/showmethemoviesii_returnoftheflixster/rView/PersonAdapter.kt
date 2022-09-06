@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.showmethemoviesii_returnoftheflixster.R
 import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Person
 
@@ -25,6 +26,7 @@ class PersonAdapter (private val itemList: MutableList<Person>): RecyclerView.Ad
             .load("https://image.tmdb.org/t/p/w500/" + model.image_path)
             .placeholder(R.drawable.cropped_placeholder)
             .fitCenter()
+            .transform(RoundedCorners(50))
             .into(holder.personImage)
 
     }

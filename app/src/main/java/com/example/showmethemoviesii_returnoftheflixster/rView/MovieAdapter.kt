@@ -2,23 +2,29 @@ package com.example.showmethemoviesii_returnoftheflixster.rView
 
 import android.annotation.SuppressLint
 import android.content.ClipData
+import android.content.Intent
 import android.media.Image
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.example.showmethemoviesii_returnoftheflixster.MovieDetailActivity
 import com.example.showmethemoviesii_returnoftheflixster.R
 import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Movie
 import com.example.showmethemoviesii_returnoftheflixster.model.view_model.Person
 
 class MovieAdapter (private val itemList: MutableList<Movie>): RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     // icky formatting for movie info
-    private var user_score_format = "User Score: \t\t\t\t\t\t\t\t\t\t\t\t\t"
-    private var date_format = "Release Date: \t\t\t\t\t\t "
+    private var user_score_format = "User Score: \t\t\t\t\t\t\t\t\t\t\t\t  "
+    private var date_format = "Release Date: \t\t\t\t\t\t"
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_movie_design, parent, false)
@@ -28,6 +34,13 @@ class MovieAdapter (private val itemList: MutableList<Movie>): RecyclerView.Adap
         @SuppressLint("SetTextI18n")
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val model = itemList[position]
+            holder.itemView.setOnClickListener{
+                val intent = Intent(holder.itemView.context, MovieDetailActivity::class.java)
+                intent.putExtra("name", model.name)
+                intent.putExtra("overview", model.overview)
+                intent.putExtra("img_path", model.img_path)
+                holder.itemView.context.startActivity(intent)
+            }
             holder.movieName.text = model.name
             holder.releaseDate.text = date_format + model.release_date
             holder.userScore.text = user_score_format + (model.user_score?.times(10))?.toInt().toString() + "%"
